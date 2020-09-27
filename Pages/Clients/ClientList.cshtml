@@ -11,14 +11,15 @@
         <h2 class="text-dark">Clients</h2>
     </div>
     <div class="col-2">
-        <a class="btn btn-primary form-control text-white">New Client</a>
+        <a class="btn btn-sm btn-success text-white" title="Add New Client">✒ Add new Client</a>
     </div>
-    <div class="col-12 border p-2 mt-2">
+
+    <div class="col-12">
         <form method="post">
             @if (Model.Client.Count() > 0)
             {
-                <table class="table table-striped border">
-                    <tr class="table-secondary">
+                <table class="table table-bordered table-hover">
+                    <tr class="table-secondary text-center">
                         <th>
                             <label asp-for="Client.FirstOrDefault().FirstName"></label>
                         </th>
@@ -38,15 +39,15 @@
                             <label asp-for="Client.FirstOrDefault().StreetAddress"></label>
                         </th>
                         <th>
-                            <label asp-for="Client.FirstOrDefault().PostCode"></label>
+                           <label asp-for="Client.FirstOrDefault().PostCode"></label>
                         </th>
                         <th>
-
+                            <label>Action</label>
                         </th>
                     </tr>
                     @foreach (var client in Model.Client)
                     {
-                        <tr>
+                        <tr class="text-center">
                             <td>
                                 @Html.DisplayFor(m => client.FirstName)
                             </td>
@@ -70,9 +71,10 @@
                             </td>
                             <td>
                                 <div class="btn-group">
-                                    <a class="btn btn-secondary btn-primary" asp-page="/Clients/Client" asp-route-id="@client.ID">View</a>
-                                    <a class="btn btn-secondary btn-success" asp-page="./Delete" asp-route-id="@client.ID">Edit</a>
-                                    <a class="btn btn-secondary btn-danger" asp-page="./Delete" asp-route-id="@client.ID">Delete</a>
+                                    <a class="btn btn-outline-primary" title="View Client" asp-page="/Clients/Client" asp-route-id="@client.ID">🔍</a>
+                                    <a class="btn btn-outline-success" title="Edit Client" asp-page="./Delete" asp-route-id="@client.ID">✐</a>
+                                    <a class="btn btn-outline-danger" title="Delete Client"  asp-page="./Delete" asp-route-id="@client.ID">🗑️</a>
+
                                 </div>
                             </td>
                         </tr>
