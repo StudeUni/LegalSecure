@@ -1,16 +1,23 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
+using LegalSecure.Data;
+using LegalSecure.Models;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace LegalSecure.Pages.Clients
 {
     public class ClientModel : PageModel
     {
-        public void OnGet()
+        private readonly ApplicationDbContext _db;
+        public ClientModel(ApplicationDbContext db)
         {
+            _db = db;
         }
+
+        public Client Client { get; set; }
+        public async Task OnGetAsync(int id)
+        {
+            Client = await _db.Client.FindAsync(id);
+        }
+
     }
 }
