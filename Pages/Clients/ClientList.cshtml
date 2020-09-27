@@ -1,0 +1,89 @@
+﻿@page
+@model LegalSecure.Pages.Clients.IndexModel
+@{
+    ViewData["Title"] = "Clients";
+}
+
+
+<br />
+<div class="container row p-0 m-0">
+    <div class="col-10">
+        <h2 class="text-dark">Clients</h2>
+    </div>
+    <div class="col-2">
+        <a class="btn btn-primary form-control text-white">New Client</a>
+    </div>
+    <div class="col-12 border p-2 mt-2">
+        <form method="post">
+            @if (Model.Client.Count() > 0)
+            {
+                <table class="table table-striped border">
+                    <tr class="table-secondary">
+                        <th>
+                            <label asp-for="Client.FirstOrDefault().FirstName"></label>
+                        </th>
+                        <th>
+                            <label asp-for="Client.FirstOrDefault().LastName"></label>
+                        </th>
+                        <th>
+                            <label asp-for="Client.FirstOrDefault().BirthDate"></label>
+                        </th>
+                        <th>
+                            <label asp-for="Client.FirstOrDefault().ContactPhone"></label>
+                        </th>
+                        <th>
+                            <label asp-for="Client.FirstOrDefault().EmailAddress"></label>
+                        </th>
+                        <th>
+                            <label asp-for="Client.FirstOrDefault().StreetAddress"></label>
+                        </th>
+                        <th>
+                            <label asp-for="Client.FirstOrDefault().PostCode"></label>
+                        </th>
+                        <th>
+
+                        </th>
+                    </tr>
+                    @foreach (var client in Model.Client)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(m => client.FirstName)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(m => client.LastName)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(m => client.BirthDate)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(m => client.ContactPhone)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(m => client.EmailAddress)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(m => client.StreetAddress)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(m => client.PostCode)
+                            </td>
+                            <td>
+                                <div class="btn-group">
+                                    <button class="btn btn-secondary btn-primary" asp-page="./Edit" asp-route-id="@client.ID">View</button>
+                                    <button class="btn btn-secondary btn-success" asp-page="./Delete" asp-route-id="@client.ID">Edit</button>
+                                    <button class="btn btn-secondary btn-danger" asp-page="./Delete" asp-route-id="@client.ID">Delete</button>
+                                </div>
+                            </td>
+                        </tr>
+
+                    }
+                </table>
+            }
+            else
+            {
+                <p>No Clients currently exist</p>
+            }
+        </form>
+    </div>
+</div>  

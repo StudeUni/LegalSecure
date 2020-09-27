@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 
 namespace LegalSecure.Models
@@ -9,25 +10,28 @@ namespace LegalSecure.Models
         [Key]
         public int ID { get; set; }
 
-        [Required]
+        [Required,DisplayName("First Name")]
         public string FirstName { get; set; }
 
-        [Required]
+        [Required, DisplayName("Last Name")]
         public string LastName { get; set; }
 
-        [Required, DataType(DataType.Date), DisplayFormat(DataFormatString = "{0:dd/MM/yy}", ApplyFormatInEditMode = true)]
+        [Required, DisplayName("Birth Date"), DataType(DataType.Date), 
+            DisplayFormat(DataFormatString = "{0:dd/MM/yy}", ApplyFormatInEditMode = true)]
         public DateTime BirthDate { get; set; }
 
-        [Required, Phone]
+        [Required, DisplayName("Contact Phone"), Phone]
         public string ContactPhone { get; set; }
 
-        [Required, EmailAddress]
+        [Required, DisplayName("Email Address"), EmailAddress]
         public string EmailAddress { get; set; }
 
-        [Required]
+        [Required, DisplayName("Street Address")]
         public string StreetAddress { get; set; }
-        [Required]
+
+        [Required, DisplayName("Post Code")]
         public string PostCode { get; set; }
+
         [Required]
         public List<Case> Cases { get; set; }
 
