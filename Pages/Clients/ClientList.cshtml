@@ -11,7 +11,7 @@
         <h2 class="text-dark">Clients</h2>
     </div>
     <div class="col-2">
-        <a class="btn btn-sm btn-success text-white" title="Add New Client">✒ Add new Client</a>
+        <a class="btn btn-sm btn-success text-white" asp-page="/Clients/ClientCreate" title="Add New Client">✒ Add new Client</a>
     </div>
 
     <div class="col-12">
@@ -74,7 +74,6 @@
                                     <a class="btn btn-outline-primary" title="View Client" asp-page="/Clients/Client" asp-route-id="@client.ID">🔍</a>
                                     <a class="btn btn-outline-success" title="Edit Client" asp-page="/Clients/ClientEdit" asp-route-id="@client.ID">✐</a>
                                     <a class="btn btn-outline-danger" title="Delete Client"  asp-page-handler="Delete" asp-route-id="@client.ID" onclick="return confirm('Are you sure you want to delete?')">🗑️</a>
-
                                 </div>
                             </td>
                         </tr>

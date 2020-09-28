@@ -20,7 +20,7 @@ namespace LegalSecure.Models
             DisplayFormat(DataFormatString = "{0:dd/MM/yy}", ApplyFormatInEditMode = true)]
         public DateTime BirthDate { get; set; }
 
-        [Required, DisplayName("Contact Phone"), Phone]
+        [Required, DisplayName("Contact Phone"), Phone] [DataType(DataType.Text)]
         public string ContactPhone { get; set; }
 
         [Required, DisplayName("Email Address"), EmailAddress]

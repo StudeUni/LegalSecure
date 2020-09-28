@@ -1,56 +1,43 @@
-﻿@page "{id}"
+﻿@page
 @model LegalSecure.Pages.Clients.ClientModel
 @{
-    ViewData["Title"] = "Client" + @Html.DisplayFor(model => model.Client.FirstName);
+    ViewData["Title"] = "Client";
 }
 
-<div class="col-md-8">
-    <div class="card mb-3">
-        <div class="card-body">
-            <div class="row">
-                <div class="col-sm-3">
-                    <h6 class="mb-0">Frist Name:</h6>
-                </div>
-                <div class="col-sm-9 text-secondary">
-                    @Html.DisplayFor(m => Model.Client.FirstName)
-                </div>
-            </div>
-            <hr>
-            <div class="row">
-                <div class="col-sm-3">
-                    <h6 class="mb-0">Last Name:</h6>
-                </div>
-                <div class="col-sm-9 text-secondary">
-                    @Html.DisplayFor(m => Model.Client.LastName)
-                </div>
-            </div>
-            <hr>
-            <div class="row">
-                <div class="col-sm-3">
-                    <h6 class="mb-0">Birth Date:</h6>
-                </div>
-                <div class="col-sm-9 text-secondary">
-                    @Html.DisplayFor(m => Model.Client.BirthDate)
-                </div>
-            </div>
-            <hr>
-            <div class="row">
-                <div class="col-sm-3">
-                    <h6 class="mb-0">Contact Phone:</h6>
-                </div>
-                <div class="col-sm-9 text-secondary">
-                    @Html.DisplayFor(m => Model.Client.ContactPhone)
-                </div>
-            </div>
-            <hr>
-            <div class="row">
-                <div class="col-sm-3">
-                    <h6 class="mb-0">Email Address:</h6>
-                </div>
-                <div class="col-sm-9 text-secondary">
-                    @Html.DisplayFor(m => Model.Client.EmailAddress)
-                </div>
-            </div>
-        </div>
+<br />
+<h2 class="text-dark">Client Profile</h2>
+<br />
+
+<form>
+    <div class="form-group">
+        <label class="font-weight-bold" asp-for="Client.FirstName"></label>
+        <input asp-for="Client.FirstName" class="form-control font-weight-bold" readonly />
     </div>
-</div>
+    <div class="form-group">
+        <label class="font-weight-bold" asp-for="Client.LastName"></label>
+        <input asp-for="Client.LastName" class="form-control font-weight-bold" readonly />
+    </div>
+    <div class="form-group">
+        <label class="font-weight-bold" asp-for="Client.BirthDate"></label>
+        <input asp-for="Client.BirthDate" class="form-control font-weight-bold" readonly />
+    </div>
+    <div class="form-group">
+        <label class="font-weight-bold" asp-for="Client.ContactPhone"></label>
+        <input asp-for="Client.ContactPhone" class="form-control font-weight-bold" readonly />
+    </div>
+    <div class="form-group">
+        <label class="font-weight-bold" asp-for="Client.EmailAddress"></label>
+        <input asp-for="Client.EmailAddress" class="form-control font-weight-bold" readonly />
+    </div>
+    <div class="form-group">
+        <label class="font-weight-bold" asp-for="Client.StreetAddress"></label>
+        <input asp-for="Client.StreetAddress" class="form-control font-weight-bold" readonly />
+    </div>
+    <div class="form-group">
+        <label class="font-weight-bold" asp-for="Client.PostCode"></label>
+        <input asp-for="Client.PostCode" class="form-control font-weight-bold" readonly />
+    </div>
+        <div class="col-3">
+            <a asp-page="/Clients/ClientList" class="btn btn-success form-control">Back to List</a>
+    </div>
+</form>

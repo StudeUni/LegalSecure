@@ -3,6 +3,7 @@ using LegalSecure.Data;
 using LegalSecure.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.EntityFrameworkCore;
 
 namespace LegalSecure.Pages.Clients
 {
@@ -17,24 +18,31 @@ namespace LegalSecure.Pages.Clients
 
         [BindProperty]
         public Client Client { get; set; }
-        public async Task OnGetAsync(int id)
+
+        public async Task OnGet(int id)
         {
             Client = await _db.Client.FindAsync(id);
         }
 
         public async Task<IActionResult> OnPost()
         {
-            if (!ModelState.IsValid)
+            if (ModelState.IsValid)
             {
-                return Page();
-            }
-            else
-            {
-                var entry = _db.Add(new Client());
-                entry.CurrentValues.SetValues(Client);
+                var clientFromDB = await _db.Client.FindAsync(Client.ID);
+                clientFromDB.FirstName = Client.FirstName;
+                clientFromDB.LastName = Client.LastName;
+                clientFromDB.BirthDate = Client.BirthDate;
+                clientFromDB.ContactPhone = Client.ContactPhone;
+                clientFromDB.EmailAddress = Client.EmailAddress;
+                clientFromDB.StreetAddress = Client.StreetAddress;
+                clientFromDB.PostCode = Client.PostCode;
+                clientFromDB.Cases = Client.Cases;
+
                 await _db.SaveChangesAsync();
-                return RedirectToPage("/Error");
+
+                return RedirectToPage("/Clients/ClientList");
             }
+            return RedirectToPage("/Error");
         }
     }
 }
