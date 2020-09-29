@@ -16,11 +16,10 @@ namespace LegalSecure.Models
         [Required, DisplayName("Last Name")]
         public string LastName { get; set; }
 
-        [Required, DisplayName("Birth Date"), DataType(DataType.Date), 
-            DisplayFormat(DataFormatString = "{0:dd/MM/yy}", ApplyFormatInEditMode = true)]
-        public DateTime BirthDate { get; set; }
+        [Required, DisplayName("Birth Date"), DataType(DataType.Date)]
+        public DateTime BirthDate { get; set; } = DateTime.Now;
 
-        [Required, DisplayName("Contact Phone"), Phone] [DataType(DataType.Text)]
+        [Required, DisplayName("Contact Phone"), Phone]
         public string ContactPhone { get; set; }
 
         [Required, DisplayName("Email Address"), EmailAddress]

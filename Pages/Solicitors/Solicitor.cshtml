@@ -1,0 +1,43 @@
+﻿@page
+@model LegalSecure.Pages.Solicitors.ClientModel
+@{
+    ViewData["Title"] = "Solicitor";
+}
+
+<br />
+<h2 class="text-dark">Solicitor Profile</h2>
+<br />
+
+<form>
+    <div class="form-group">
+        <label class="font-weight-bold" asp-for="Solicitor.FirstName"></label>
+        <input asp-for="Solicitor.FirstName" class="form-control font-weight-bold" readonly />
+    </div>
+    <div class="form-group">
+        <label class="font-weight-bold" asp-for="Solicitor.LastName"></label>
+        <input asp-for="Solicitor.LastName" class="form-control font-weight-bold" readonly />
+    </div>
+    <div class="form-group">
+        <label class="font-weight-bold" asp-for="Solicitor.BirthDate"></label>
+        <input asp-for="Solicitor.BirthDate" class="form-control font-weight-bold" readonly />
+    </div>
+    <div class="form-group">
+        <label class="font-weight-bold" asp-for="Solicitor.ContactPhone"></label>
+        <input asp-for="Solicitor.ContactPhone" class="form-control font-weight-bold" readonly />
+    </div>
+    <div class="form-group">
+        <label class="font-weight-bold" asp-for="Solicitor.EmailAddress"></label>
+        <input asp-for="Solicitor.EmailAddress" class="form-control font-weight-bold" readonly />
+    </div>
+    <div class="form-group">
+        <label class="font-weight-bold" asp-for="Solicitor.StreetAddress"></label>
+        <input asp-for="Solicitor.StreetAddress" class="form-control font-weight-bold" readonly />
+    </div>
+    <div class="form-group">
+        <label class="font-weight-bold" asp-for="Solicitor.PostCode"></label>
+        <input asp-for="Solicitor.PostCode" class="form-control font-weight-bold" readonly />
+    </div>
+    <div class="col-3">
+        <a asp-page="/Clients/ClientList" class="btn btn-primary btn-sm form-control">Return to Solicitor List</a>
+    </div>
+</form>

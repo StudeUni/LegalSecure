@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -7,35 +8,35 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 
-namespace LegalSecure.Pages.Clients
+namespace LegalSecure.Pages.Solicitors
 {
-    public class IndexModel : PageModel
+    public class SolicitorListModel : PageModel
     {
         private readonly ApplicationDbContext _db;
-        public IndexModel(ApplicationDbContext db)
+
+        public SolicitorListModel(ApplicationDbContext db)
         {
-            _db = db;
+            this._db = db;
         }
 
-        public IList<Client> Client { get; set; }
-
+        public IList<Solicitor> Solicitor { get; set; }
         public async Task OnGetAsync()
         {
-            Client = await _db.Client.ToListAsync();
+            Solicitor = await _db.Solicitor.ToListAsync();
         }
 
         public async Task<IActionResult> OnPostDelete(int id)
         {
-            var client = await _db.Client.FindAsync(id);
-            if (client == null)
+            var solicitor = await _db.Solicitor.FindAsync(id);
+            if (solicitor == null)
             {
                 return NotFound();
 
             }
-            _db.Client.Remove(client);
+            _db.Solicitor.Remove(solicitor);
             await _db.SaveChangesAsync();
 
-            return RedirectToPage("/Clients/ClientList");
+            return RedirectToPage("/Solicitors/SolicitorList");
         }
     }
 }

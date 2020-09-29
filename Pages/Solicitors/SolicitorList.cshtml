@@ -1,0 +1,89 @@
+﻿@page
+@model LegalSecure.Pages.Solicitors.SolicitorListModel
+@{
+    ViewData["Title"] = "Solicitor List";
+}
+
+<br />
+<div class="container row p-0 m-0">
+    <div class="col-10">
+        <h2 class="text-dark">Solicitors</h2>
+    </div>
+    <div class="col-2">
+        <a class="btn btn-sm btn-success text-white" asp-page="/Solicitors/SolicitorCreate" title="Add New Solicitor">✒ Add new Solicitor</a>
+    </div>
+
+    <div class="col-12">
+        <form method="post">
+            @if (Model.Solicitor.Count() > 0)
+            {
+                <table class="table table-bordered table-hover">
+                    <tr class="table-secondary text-center">
+                        <th>
+                            <label asp-for="Solicitor.FirstOrDefault().FirstName"></label>
+                        </th>
+                        <th>
+                            <label asp-for="Solicitor.FirstOrDefault().LastName"></label>
+                        </th>
+                        <th>
+                            <label asp-for="Solicitor.FirstOrDefault().BirthDate"></label>
+                        </th>
+                        <th>
+                            <label asp-for="Solicitor.FirstOrDefault().ContactPhone"></label>
+                        </th>
+                        <th>
+                            <label asp-for="Solicitor.FirstOrDefault().EmailAddress"></label>
+                        </th>
+                        <th>
+                            <label asp-for="Solicitor.FirstOrDefault().StreetAddress"></label>
+                        </th>
+                        <th>
+                            <label asp-for="Solicitor.FirstOrDefault().PostCode"></label>
+                        </th>
+                        <th>
+                            <label>Action</label>
+                        </th>
+                    </tr>
+                    @foreach (var solicitor in Model.Solicitor)
+                    {
+                        <tr class="text-center">
+                            <td>
+                                @Html.DisplayFor(m => solicitor.FirstName)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(m => solicitor.LastName)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(m => solicitor.BirthDate)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(m => solicitor.ContactPhone)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(m => solicitor.EmailAddress)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(m => solicitor.StreetAddress)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(m => solicitor.PostCode)
+                            </td>
+                            <td>
+                                <div class="btn-group">
+                                    <a class="btn btn-outline-primary" title="View Solicitor" asp-page="/Solicitors/Solicitor" asp-route-id="@solicitor.ID">🔍</a>
+                                    <a class="btn btn-outline-success" title="Edit Solicitor" asp-page="/Solicitors/SolicitorEdit" asp-route-id="@solicitor.ID">✐</a>
+                                    <button class="btn btn-outline-danger btn-sm" asp-page-handler="Delete" asp-route-id="@solicitor.ID" onclick="return confirm('Are you sure you want to delete?')">🗑️</button>
+                                </div>
+                            </td>
+                        </tr>
+
+                    }
+                </table>
+            }
+            else
+            {
+                <p>No Solicitors currently exist</p>
+            }
+        </form>
+    </div>
+</div>  

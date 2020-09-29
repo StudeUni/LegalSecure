@@ -1,4 +1,4 @@
-﻿@page
+﻿@page "{searchString?}"
 @model LegalSecure.Pages.Clients.IndexModel
 @{
     ViewData["Title"] = "Clients";
@@ -39,7 +39,7 @@
                             <label asp-for="Client.FirstOrDefault().StreetAddress"></label>
                         </th>
                         <th>
-                           <label asp-for="Client.FirstOrDefault().PostCode"></label>
+                            <label asp-for="Client.FirstOrDefault().PostCode"></label>
                         </th>
                         <th>
                             <label>Action</label>
@@ -73,7 +73,7 @@
                                 <div class="btn-group">
                                     <a class="btn btn-outline-primary" title="View Client" asp-page="/Clients/Client" asp-route-id="@client.ID">🔍</a>
                                     <a class="btn btn-outline-success" title="Edit Client" asp-page="/Clients/ClientEdit" asp-route-id="@client.ID">✐</a>
-                                    <a class="btn btn-outline-danger" title="Delete Client"  asp-page-handler="Delete" asp-route-id="@client.ID" onclick="return confirm('Are you sure you want to delete?')">🗑️</a>
+                                    <button class="btn btn-outline-danger btn-sm" asp-page-handler="Delete" asp-route-id="@client.ID" onclick="return confirm('Are you sure you want to delete?')">🗑️</button>
                                 </div>
                             </td>
                         </tr>

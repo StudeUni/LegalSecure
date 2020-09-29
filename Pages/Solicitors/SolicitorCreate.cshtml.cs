@@ -7,33 +7,27 @@ using LegalSecure.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
-namespace LegalSecure.Pages.Clients
+namespace LegalSecure.Pages.Solicitors
 {
-    public class ClientCreateModel : PageModel
+    public class SolicitorCreateModel : PageModel
     {
         private readonly ApplicationDbContext _db;
-        public ClientCreateModel(ApplicationDbContext db)
+        public SolicitorCreateModel(ApplicationDbContext db)
         {
-            _db = db;
+            this._db = db;
         }
 
         [BindProperty]
-        public Client Client { get; set; }
-
-
-        public void OnGet()
-        {
-
-        }
+        public Solicitor Solicitor { get; set; }
 
         public async Task<IActionResult> OnPost()
         {
-            if(ModelState.IsValid)
+            if (ModelState.IsValid)
             {
-                await _db.Client.AddAsync(Client);
+                await _db.Solicitor.AddAsync(Solicitor);
                 await _db.SaveChangesAsync();
 
-                return RedirectToPage("/Clients/ClientList");
+                return RedirectToPage("/Solicitors/SolicitorList");
             }
             else
             {

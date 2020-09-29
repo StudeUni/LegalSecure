@@ -1,0 +1,63 @@
+﻿@page
+@model LegalSecure.Pages.Solicitors.SolicitorEditModel
+@{
+}
+
+<br />
+<h2 class="text-dark">Edit Solicitor</h2>
+<br />
+
+<div class="border container" style="padding:30px;">
+    <form method="post">
+        <input type="hidden" asp-for="Solicitor.ID" />
+        <div class="text-danger" asp-validation-summary="ModelOnly"></div>
+        <div class="form-group">
+            <label asp-for="Solicitor.FirstName"></label>
+            <input asp-for="Solicitor.FirstName" class="form-control" />
+        </div>
+        <span asp-validation-for="Solicitor.FirstName" class="text-danger"></span>
+        <div class="form-group">
+            <label asp-for="Solicitor.LastName"></label>
+            <input asp-for="Solicitor.LastName" class="form-control" />
+        </div>
+        <span asp-validation-for="Solicitor.LastName" class="text-danger"></span>
+        <div class="form-group">
+            <label asp-for="Solicitor.BirthDate"></label>
+            <input asp-for="Solicitor.BirthDate" class="form-control" />
+        </div>
+        <span asp-validation-for="Solicitor.BirthDate" class="text-danger"></span>
+        <div class="form-group">
+            <label asp-for="Solicitor.ContactPhone"></label>
+            <input asp-for="Solicitor.ContactPhone" class="form-control" />
+        </div>
+        <span asp-validation-for="Solicitor.ContactPhone" class="text-danger"></span>
+        <div class="form-group">
+            <label asp-for="Solicitor.EmailAddress"></label>
+            <input asp-for="Solicitor.EmailAddress" class="form-control" />
+        </div>
+        <span asp-validation-for="Solicitor.EmailAddress" class="text-danger"></span>
+        <div class="form-group">
+            <label asp-for="Solicitor.StreetAddress"></label>
+            <input asp-for="Solicitor.StreetAddress" class="form-control" />
+        </div>
+        <span asp-validation-for="Solicitor.StreetAddress" class="text-danger"></span>
+        <div class="form-group">
+            <label asp-for="Solicitor.PostCode"></label>
+            <input asp-for="Solicitor.PostCode" class="form-control" />
+        </div>
+        <span asp-validation-for="Solicitor.PostCode" class="text-danger"></span>
+        <input type="hidden" asp-for="Solicitor.Activities" />
+        <div class="form-group row">
+            <div class="col-3 offset-3">
+                <input type="submit" value="Update" class="btn btn-success form-control" />
+            </div>
+            <div class="col-3">
+                <a asp-page="/Solicitors/SolicitorList" class="btn btn-primary form-control">Back to List</a>
+            </div>
+        </div>
+    </form>
+</div>
+
+@section Scripts{
+    <partial name="_ValidationScriptsPartial" />
+}
