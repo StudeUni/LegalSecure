@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -18,21 +19,36 @@ namespace LegalSecure.Pages.Clients
         }
 
         public IList<Client> Client { get; set; }
-
+        [BindProperty(SupportsGet = true)]
+        public string SearchString { get; set; }
         public async Task OnGetAsync()
         {
-            Client = await _db.Client.ToListAsync();
+            var clients = from m in _db.Client
+                          select m; 
+
+            if(!string.IsNullOrEmpty(SearchString))
+            {
+                clients = clients.Where(s => s.FirstName.Contains(SearchString));
+            }
+
+
+
+            Client = await clients.ToListAsync();
+
+
         }
 
         public async Task<IActionResult> OnPostDelete(int id)
         {
             var client = await _db.Client.FindAsync(id);
+
             if (client == null)
             {
                 return NotFound();
 
             }
             _db.Client.Remove(client);
+
             await _db.SaveChangesAsync();
 
             return RedirectToPage("/Clients/ClientList");
