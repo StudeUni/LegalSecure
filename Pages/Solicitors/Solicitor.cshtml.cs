@@ -9,11 +9,11 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace LegalSecure.Pages.Solicitors
 {
-    public class ClientModel : PageModel
+    public class SolicitorModel : PageModel
     {
         private ApplicationDbContext _db;
 
-        public ClientModel(ApplicationDbContext db)
+        public SolicitorModel(ApplicationDbContext db)
         {
             this._db = db;
         }

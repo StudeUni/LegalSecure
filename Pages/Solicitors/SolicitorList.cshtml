@@ -1,10 +1,16 @@
-﻿@page
+﻿@page "{searchString?}"
 @model LegalSecure.Pages.Solicitors.SolicitorListModel
 @{
     ViewData["Title"] = "Solicitor List";
 }
 
-<br />
+<form class="form-inline md-form mr-auto mb-4 justify-content-center">
+    <input class="form-control mr-sm-2" type="text" asp-for="SearchString" placeholder="Search" aria-label="Search">
+    <button class="btn btn-outline-dark" type="submit">🔎</button>
+</form>
+
+<hr />
+
 <div class="container row p-0 m-0">
     <div class="col-10">
         <h2 class="text-dark">Solicitors</h2>

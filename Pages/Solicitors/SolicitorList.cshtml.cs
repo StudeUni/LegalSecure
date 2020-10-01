@@ -20,11 +20,23 @@ namespace LegalSecure.Pages.Solicitors
         }
 
         public IList<Solicitor> Solicitor { get; set; }
+        
+        [BindProperty(SupportsGet = true)]
+        public string SearchString { get; set; }
         public async Task OnGetAsync()
         {
-            Solicitor = await _db.Solicitor.ToListAsync();
-        }
+            var solicitors = from m in _db.Solicitor
+                          select m;
 
+            if (!string.IsNullOrEmpty(SearchString))
+            {
+                solicitors = solicitors.Where(s => s.FirstName.Contains(SearchString) || s.LastName.Contains(SearchString));
+            }
+
+            Solicitor = await solicitors.ToListAsync();
+
+
+        }
         public async Task<IActionResult> OnPostDelete(int id)
         {
             var solicitor = await _db.Solicitor.FindAsync(id);
