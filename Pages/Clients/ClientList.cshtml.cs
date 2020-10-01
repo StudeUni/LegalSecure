@@ -28,7 +28,7 @@ namespace LegalSecure.Pages.Clients
 
             if(!string.IsNullOrEmpty(SearchString))
             {
-                clients = clients.Where(s => s.FirstName.Contains(SearchString));
+                clients = clients.Where(s => s.FirstName.Contains(SearchString) || s.LastName.Contains(SearchString));
             }
 
 

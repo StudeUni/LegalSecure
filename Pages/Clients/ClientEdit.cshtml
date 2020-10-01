@@ -7,57 +7,58 @@
 <h2 class="text-dark">Edit Client</h2>
 <br />
 
-<div class="border container" style="padding:30px;">
-    <form method="post">
+<form method="post">
+    <div class="text-danger" asp-validation-summary="ModelOnly"></div>
+    <div class="form-row">
         <input type="hidden" asp-for="Client.ID" />
-        <div class="text-danger" asp-validation-summary="ModelOnly"></div>
-        <div class="form-group">
+        <div class="form-group col-md-6">
             <label asp-for="Client.FirstName"></label>
-            <input asp-for="Client.FirstName" class="form-control" />
+            <input asp-for="Client.FirstName" class="form-control">
+            <span asp-validation-for="Client.FirstName" class="text-danger"></span>
         </div>
-        <span asp-validation-for="Client.FirstName" class="text-danger"></span>
-        <div class="form-group">
+        <div class="form-group col-md-6">
             <label asp-for="Client.LastName"></label>
-            <input asp-for="Client.LastName" class="form-control" />
+            <input asp-for="Client.LastName" class="form-control">
+            <span asp-validation-for="Client.LastName" class="text-danger"></span>
         </div>
-        <span asp-validation-for="Client.LastName" class="text-danger"></span>
-        <div class="form-group">
-            <label asp-for="Client.BirthDate"></label>
-            <input asp-for="Client.BirthDate" class="form-control" />
-        </div>
+    </div>
+    <div class="form-group">
+        <label asp-for="Client.BirthDate"></label>
+        <input asp-for="Client.BirthDate" class="form-control">
         <span asp-validation-for="Client.BirthDate" class="text-danger"></span>
-        <div class="form-group">
-            <label asp-for="Client.ContactPhone"></label>
-            <input asp-for="Client.ContactPhone" class="form-control" />
-        </div>
+    </div>
+    <div class="form-group">
+        <label asp-for="Client.ContactPhone"></label>
+        <input asp-for="Client.ContactPhone" class="form-control">
         <span asp-validation-for="Client.ContactPhone" class="text-danger"></span>
-        <div class="form-group">
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-6">
             <label asp-for="Client.EmailAddress"></label>
-            <input asp-for="Client.EmailAddress" class="form-control" />
+            <input asp-for="Client.EmailAddress" class="form-control">
+            <span asp-validation-for="Client.EmailAddress" class="text-danger"></span>
         </div>
-        <span asp-validation-for="Client.EmailAddress" class="text-danger"></span>
-        <div class="form-group">
+        <div class="form-group col-md-4">
             <label asp-for="Client.StreetAddress"></label>
-            <input asp-for="Client.StreetAddress" class="form-control" />
+            <input asp-for="Client.StreetAddress" class="form-control">
+            <span asp-validation-for="Client.StreetAddress" class="text-danger"></span>
         </div>
-        <span asp-validation-for="Client.StreetAddress" class="text-danger"></span>
-        <div class="form-group">
+        <div class="form-group col-md-2">
             <label asp-for="Client.PostCode"></label>
-            <input asp-for="Client.PostCode" class="form-control" />
+            <input asp-for="Client.PostCode" class="form-control">
+            <span asp-validation-for="Client.PostCode" class="text-danger"></span>
+            <input type="hidden" asp-for="Client.Cases" />
         </div>
-        <span asp-validation-for="Client.PostCode" class="text-danger"></span>
-        <input type="hidden" asp-for="Client.Cases" />
-        <div class="form-group row">
-            <div class="col-3 offset-3">
-                <input type="submit" value="Update" class="btn btn-success form-control" />
-            </div>
-            <div class="col-3">
-                <a asp-page="/Clients/ClientList" class="btn btn-primary form-control">Back to List</a>
-            </div>
+    </div>
+    <div class="form-group row">
+        <div class="col-3 offset-3">
+            <input type="submit" value="Update" class="btn btn-success form-control" />
         </div>
-    </form>
-</div>
-
+        <div class="col-3">
+            <a asp-page="/Clients/ClientList" class="btn btn-primary form-control">Back to List</a>
+        </div>
+    </div>
+</form>
 @section Scripts{
     <partial name="_ValidationScriptsPartial" />
 }

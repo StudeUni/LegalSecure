@@ -9,35 +9,39 @@
 <br />
 
 <form>
-    <div class="form-group">
-        <label class="font-weight-bold" asp-for="Client.FirstName"></label>
-        <input asp-for="Client.FirstName" class="form-control font-weight-bold" readonly />
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <label asp-for="Client.FirstName"></label>
+            <input asp-for="Client.FirstName" class="form-control" readonly>
+        </div>
+        <div class="form-group col-md-6">
+            <label asp-for="Client.LastName"></label>
+            <input asp-for="Client.LastName" class="form-control" readonly>
+        </div>
     </div>
     <div class="form-group">
-        <label class="font-weight-bold" asp-for="Client.LastName"></label>
-        <input asp-for="Client.LastName" class="form-control font-weight-bold" readonly />
+        <label asp-for="Client.BirthDate"></label>
+        <input asp-for="Client.BirthDate" class="form-control" readonly>
     </div>
     <div class="form-group">
-        <label class="font-weight-bold" asp-for="Client.BirthDate"></label>
-        <input asp-for="Client.BirthDate" class="form-control font-weight-bold" readonly />
+        <label asp-for="Client.ContactPhone"></label>
+        <input asp-for="Client.ContactPhone" class="form-control" readonly>
     </div>
-    <div class="form-group">
-        <label class="font-weight-bold" asp-for="Client.ContactPhone"></label>
-        <input asp-for="Client.ContactPhone" class="form-control font-weight-bold" readonly />
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <label asp-for="Client.EmailAddress"></label>
+            <input asp-for="Client.EmailAddress" class="form-control" readonly>
+        </div>
+        <div class="form-group col-md-4">
+            <label asp-for="Client.StreetAddress"></label>
+            <input asp-for="Client.StreetAddress" class="form-control" readonly>
+        </div>
+        <div class="form-group col-md-2">
+            <label asp-for="Client.PostCode"></label>
+            <input asp-for="Client.PostCode" class="form-control" readonly>
+        </div>
     </div>
-    <div class="form-group">
-        <label class="font-weight-bold" asp-for="Client.EmailAddress"></label>
-        <input asp-for="Client.EmailAddress" class="form-control font-weight-bold" readonly />
-    </div>
-    <div class="form-group">
-        <label class="font-weight-bold" asp-for="Client.StreetAddress"></label>
-        <input asp-for="Client.StreetAddress" class="form-control font-weight-bold" readonly />
-    </div>
-    <div class="form-group">
-        <label class="font-weight-bold" asp-for="Client.PostCode"></label>
-        <input asp-for="Client.PostCode" class="form-control font-weight-bold" readonly />
-    </div>
-        <div class="col-3">
-            <a asp-page="/Clients/ClientList" class="btn btn-primary btn-sm form-control">Return to Cient List</a>
+    <div class="col-3">
+        <a asp-page="/Clients/ClientList" class="btn btn-primary btn-sm form-control">Return to Cient List</a>
     </div>
 </form>
