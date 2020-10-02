@@ -10,10 +10,10 @@ using Microsoft.EntityFrameworkCore;
 
 namespace LegalSecure.Pages.Clients
 {
-    public class IndexModel : PageModel
+    public class ClientListIndexModel : PageModel
     {
         private readonly ApplicationDbContext _db;
-        public IndexModel(ApplicationDbContext db)
+        public ClientListIndexModel(ApplicationDbContext db)
         {
             _db = db;
         }

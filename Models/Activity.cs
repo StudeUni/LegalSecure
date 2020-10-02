@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
@@ -13,7 +14,7 @@ namespace LegalSecure.Models
         public int ID { get; set; }
         public string Description { get; set; }
 
-        [DataType(DataType.Date), DisplayFormat(DataFormatString = "{0:dd/MM/yy}", ApplyFormatInEditMode = true)]
+        [Required, DisplayName("Date"), DataType(DataType.Date)]
         public DateTime Date { get; set; }
 
         [Required, Column(TypeName = "decimal(18,2)")]
